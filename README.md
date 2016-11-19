@@ -11,4 +11,14 @@ npm run deploy // http://hkdemo.surge.sh/
 
 Just update domain to `hkdemo.surge.sh` (whatever you created 1st time) when you run `npm run deploy`
 
+## Resources
+
+Continious Integration: https://travis-ci.org/hesing/hkstarter
+
+Prod Url: http://hkdemo.surge.sh/
+
+
+
+
+
 

@@ -5,9 +5,7 @@ import WebpackMd5Hash from 'webpack-md5-hash';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 export default {
-  debug: true,
   devtool: 'source-map',
-  noInfo: false,
   entry: {
     vendor: path.resolve(__dirname, 'src/vendor'),
     main: path.resolve(__dirname, 'src/index')
@@ -56,7 +54,27 @@ export default {
     new webpack.optimize.DedupePlugin(),
 
     // Minify JS
-    new webpack.optimize.UglifyJsPlugin()
+    new webpack.LoaderOptionsPlugin({
+      minimize: true,
+      debug: false
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false,
+        screw_ie8: true,
+        conditionals: true,
+        unused: true,
+        comparisons: true,
+        sequences: true,
+        dead_code: true,
+        evaluate: true,
+        if_return: true,
+        join_vars: true,
+      },
+      output: {
+        comments: false
+      },
+    })
   ],
   module: {
     loaders: [

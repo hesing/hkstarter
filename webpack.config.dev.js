@@ -1,10 +1,9 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import webpack from 'webpack';
 
 export default {
-  debug: true,
   devtool: 'inline-source-map',
-  noInfo: false,
   entry: [
     path.resolve(__dirname, 'src/index')
   ],
@@ -19,7 +18,8 @@ export default {
     new HtmlWebpackPlugin({
       template: 'src/index.html',
       inject: true
-    })
+    }),
+    new webpack.HotModuleReplacementPlugin()
   ],
   module: {
     loaders: [
