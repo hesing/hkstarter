@@ -8,7 +8,7 @@ export default {
   devtool: 'source-map',
   entry: {
     vendor: path.resolve(__dirname, 'src/vendor'),
-    main: path.resolve(__dirname, 'src/index')
+    main: path.resolve(__dirname, 'src/main')
   },
   target: 'web',
   output: {

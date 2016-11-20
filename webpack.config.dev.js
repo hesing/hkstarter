@@ -5,7 +5,7 @@ import webpack from 'webpack';
 export default {
   devtool: 'inline-source-map',
   entry: [
-    path.resolve(__dirname, 'src/index')
+    path.resolve(__dirname, 'src/main')
   ],
   target: 'web',
   output: {
@@ -22,7 +22,7 @@ export default {
     new webpack.HotModuleReplacementPlugin()
   ],
   module: {
-    loaders: [
+    rules: [
       {test: /\.js$/, exclude: /node_modules/, loaders: ['babel']},
       {test: /\.css$/, loaders: ['style','css']}
     ]

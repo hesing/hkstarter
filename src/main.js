@@ -1,6 +1,16 @@
 import './index.css';
 
-import {getPosts, deleteUser} from './api/postApi';
+import $ from 'jquery';
+import {getPosts, deletePost} from './api/postApi';
+import {foo, sayHello } from './helpers';
+
+let elem = document.getElementById('output');
+// let elem1 = document.getElementById('output1');
+elem.innerHTML = `Output: ${foo()}`;
+// elem1.innerHTML = `Output: ${sayHello('Hemant')}`;
+
+$('#output1').html(`Output: ${sayHello('Hemant')}`); // No tree shaking happening
+
 
 getPosts().then(result => {
   let postsBody = "";
